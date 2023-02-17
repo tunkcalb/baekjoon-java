@@ -5,12 +5,12 @@ import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 public class Main {
-	private static StringBuilder sb = new StringBuilder();
 	private static int N;
 
 	public static void main(String[] args) throws Exception {
-		
+
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
 		StringTokenizer st = new StringTokenizer(in.readLine());
 		
 		int N = Integer.parseInt(st.nextToken());
@@ -35,9 +35,7 @@ public class Main {
 				break;
 			}
 		}
-		sb.append(L);
-	
-		System.out.println(sb);
+		System.out.println(L);
 	}
 	
 }
