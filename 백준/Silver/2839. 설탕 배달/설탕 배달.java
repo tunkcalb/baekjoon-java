@@ -1,29 +1,31 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Collections;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.StringTokenizer;
-public class Main {
 
-    public static void main(String [] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        int N = Integer.parseInt(br.readLine());
-        
-        if (N == 4 || N == 7) {
-            System.out.println(-1);
-        }
-        else if (N % 5 == 0) {
-            System.out.println(N / 5);
-        }
-        else if (N % 5 == 1 || N % 5 == 3) {
-            System.out.println((N / 5) + 1);
-        }
-        else if (N % 5 == 2 || N % 5 == 4) {
-            System.out.println((N / 5) + 2);
-        }
-    }
+public class Main {
+	// 결과를 한 번에 출력하기 위한 StringBuilder
+	private static StringBuilder sb = new StringBuilder();
+	private static int N;
+
+	public static void main(String[] args) throws Exception {
+
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(in.readLine());
+		
+		if(N % 5 == 0) sb.append(N/5);
+		
+		else {
+			for(int i = 1; i <= N / 3; i++) {
+				if((N - 3 * i) % 5 == 0) {
+					sb.append(i + (N - 3  * i) / 5);
+					break;
+				}
+				if(i == N / 3 && N % 3 != 0) {
+					sb.append(-1);
+				}
+			}
+		}
+		
+		System.out.println(sb);
+	}
 }
