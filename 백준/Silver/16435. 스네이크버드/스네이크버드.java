@@ -10,13 +10,8 @@ public class Main {
 	private static int N;
 
 	public static void main(String[] args) throws Exception {
-
-		/**
-		 * 1. 입력파일 읽어들이기
-		 */
-
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(in.readLine());
 		
 		int N = Integer.parseInt(st.nextToken());
