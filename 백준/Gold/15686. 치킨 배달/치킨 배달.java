@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Main {
-	// 결과를 한 번에 출력하기 위한 StringBuilder
 	private static StringBuilder sb = new StringBuilder();
 	private static int N;
 	private static int M;
