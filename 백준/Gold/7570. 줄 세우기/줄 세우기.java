@@ -18,7 +18,7 @@ public class Main {
 			position[line[i]] = i;
 		}
 		
-		int max = 0;
+		int max = 1;
 		
 		for(int i = 1; i < N; i++) {
 			int now = i;
@@ -35,9 +35,7 @@ public class Main {
 			}
 			if(max < len) max = len;
 		}
-		if(N == 1) {
-			max = 1;
-		}
+		
 		System.out.println(N - max);
 	}
 }
