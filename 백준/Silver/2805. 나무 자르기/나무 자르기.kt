@@ -22,12 +22,12 @@ fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     tree.sortDescending()
     var mid = 0
     while (start <= end) {
-        var sum : Long = 0
+        var sum: Long = 0
         tree.forEach {
-            if(it <= mid) return@forEach
+            if (it <= mid) return@forEach
             sum += it - mid
         }
-        if(sum >= M) start = mid + 1
+        if (sum >= M) start = mid + 1
         else end = mid - 1
         mid = (start + end) / 2
     }
