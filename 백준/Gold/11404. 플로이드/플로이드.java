@@ -16,7 +16,8 @@ public class Main {
 		
 		for(int i = 1; i <= n; i++) {
 			for(int j = 1; j <= n; j++) {
-				map[i][j] = INF;
+				if(i == j) map[i][j] = 0;
+				else map[i][j] = INF;
 			}
 		}
 		
@@ -33,8 +34,7 @@ public class Main {
 		for(int k = 1; k <= n; k++) {
 			for(int i = 1; i <= n; i++) {
 				for(int j = 1; j <= n; j++) {
-					if(i == j || j == k || k == i) continue;
-					if(map[i][j] == 0 || map[i][j] > map[i][k] + map[k][j]) {
+					if(map[i][j] > map[i][k] + map[k][j]) {
 						map[i][j] = map[i][k] + map[k][j];
 					}
 				}
