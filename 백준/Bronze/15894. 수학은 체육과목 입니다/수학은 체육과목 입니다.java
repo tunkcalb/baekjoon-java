@@ -1,10 +1,9 @@
 import java.io.*;
-import java.util.*;
+
 public class Main {
 	public static void main(String[] args) throws IOException {
-		Scanner sc = new Scanner(System.in);
-		
-		long N = sc.nextInt();
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		long N = Long.parseLong(in.readLine());
 		System.out.println(4 * N);
 	}
 }
