@@ -19,12 +19,12 @@ public class Main {
         }
 
         Stack<Integer> stack = new Stack<>();
-        int ans = 0;
+        long ans = 0;
         int min = cost[0];
         for(int i = 0; i < N - 1; i++) {
             min = Math.min(min, cost[i]);
 
-            ans += min * distance[i];
+            ans += (long) min * distance[i];
         }
         System.out.println(ans);
     }
