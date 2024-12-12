@@ -1,58 +1,43 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-	
-	static int N, d, k, c;
-	static int ans;
-	static int[] dish, visited;
-	
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		
 		StringTokenizer st = new StringTokenizer(in.readLine());
 		
-		N = Integer.parseInt(st.nextToken());
-		d = Integer.parseInt(st.nextToken());
-		k = Integer.parseInt(st.nextToken());
-		c = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(st.nextToken());
+		int d = Integer.parseInt(st.nextToken());
+		int k = Integer.parseInt(st.nextToken());
+		int c = Integer.parseInt(st.nextToken());
 		
-		dish = new int[N];
-		visited = new int[d + 1];
-		
+		int[] nums = new int[d + 1];
+		int[] belt = new int[N];
 		for(int i = 0; i < N; i++) {
-			dish[i] = Integer.parseInt(in.readLine());
+			belt[i] = Integer.parseInt(in.readLine());
 		}
 		
-		slide();
-		
-		System.out.println(ans);
-	}
-
-	private static void slide() {
-		int total = 0;
-		
+		int start = 0;
+		int cnt = 0;
 		for(int i = 0; i < k; i++) {
-			if(visited[dish[i]] == 0) total++;
-			visited[dish[i]]++;
+			int add = belt[i];
+			if(nums[add] == 0) cnt++;
+			nums[add]++;
 		}
-		ans = total;
-		
-		for(int i = 1; i < N; i++) {
-			if(ans <= total) {
-				if(visited[c] == 0) {
-					ans = total + 1;
-				}else {
-					ans = total;
-				}
-			}
-			visited[dish[i - 1]]--;
-			if(visited[dish[i - 1]] == 0) total--;
+		int max = cnt + (nums[c] > 0 ? 0 : 1);
+
+		for(int i = 0; i < N; i++) {
+			int remove = belt[i];
+			nums[remove]--;
+			if(nums[remove] == 0) cnt--;
 			
-			if(visited[dish[(i + k - 1) % N]] == 0) total++;
-			visited[dish[(i + k - 1) % N]]++;
+			int add = belt[(i + k) % N];
+			nums[add]++;
+			if(nums[add] == 1) cnt++;
+			
+			max = Math.max(max, cnt + (nums[c] > 0 ? 0 : 1));
 		}
+		System.out.println(max);
 	}
 }
