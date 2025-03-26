@@ -15,8 +15,13 @@ public class Main {
 		int K = Integer.parseInt(st.nextToken());
 
 		board = new int[N + 1][M + 1];
-		int kRow = K / M + 1;
-		int kCol = K % M;
+		int kRow = (K % M == 0) ? K / M : K / M + 1;
+		int kCol = (K % M == 0) ? M : K % M;
+		
+		if(K == 0) {
+			kRow = 1;
+			kCol = 1;
+		}
 		
 		board[1][1] = 1;
 		countPath(1, 1, kRow, kCol);
