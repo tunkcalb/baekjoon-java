@@ -17,6 +17,6 @@ public class Main {
 			sum = sum.add(pow.pow(i).multiply(BigInteger.valueOf(num)));
 		}
 		
-		System.out.println(sum);
+		System.out.println(sum.remainder(BigInteger.valueOf(1234567891)));
 	}
 }
