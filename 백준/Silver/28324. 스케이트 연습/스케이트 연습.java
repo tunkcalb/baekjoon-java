@@ -16,7 +16,7 @@ public class Main {
 		}
 		
 		
-		int sum = 1;
+		long sum = 1;
 		int pre = 1;
 		
 		for(int i = N - 2; i >= 0; i--) {
