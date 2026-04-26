@@ -11,7 +11,7 @@ public class Main {
 		BigDecimal A = new BigDecimal(st.nextToken());
         BigDecimal B = new BigDecimal(st.nextToken());
 
-        String result = A.divide(B, 32, RoundingMode.HALF_UP)
+        String result = A.divide(B, 1000, RoundingMode.HALF_UP)
                 .stripTrailingZeros()
                 .toPlainString();
 
